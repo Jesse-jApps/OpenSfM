@@ -146,7 +146,7 @@ class MetaDataSet():
                     src = data.image_files[image]
                     dst = os.path.join(submodel_images_path, image)
                     if not os.path.isfile(dst):
-                        os.symlink(src, dst)
+                        os.symlink(os.path.abspath(src), dst)
                     dst_relpath = os.path.relpath(dst, submodel_path)
                     txtfile.write(dst_relpath + "\n")
 
